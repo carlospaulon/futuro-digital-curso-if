@@ -58,8 +58,31 @@ def calc_superficie(forma_geometrica):
         resultado = calc_esfera(raio)
     else:
         print('Forma inválida')
+    return resultado
+
+def calc_volume_quadrado(comprimento, altura, largura):
+    return comprimento * altura * largura
+
+def calc_volume_cilindro(raio, altura):
+    PI = 3.14
+
+    return PI * (raio ** 2) * altura
+
+def calc_volumes(forma):
+    if forma == 1:
+        comprimento = float(input('Informe o comprimento: '))
+        altura = float(input('Informe a altura: '))
+        largura = float(input('Informe a largura: '))
+        resultado = calc_volume_quadrado(comprimento, altura, largura)
+    elif forma == 2:
+        raio = float(input('Informe o raio do cilindro: '))
+        altura = float(input('Informe a altura: '))
+        resultado = calc_volume_cilindro(raio, altura)
+    else:
+        return 'Forma inválida'
 
     return resultado
+
 menu = """
 Escolha uma opção:
 1- Comprimento
@@ -92,7 +115,9 @@ while (opcao != 0):
             superficie = int(input('Informe a superficie: '))
             print(calc_superficie(superficie))
         case 5:
-            print("Volume")
+            print('Forma: 1- quadrado/retangulo, 2- cilindro')
+            forma = int(input('Informe a forma para o volume: '))
+            print(calc_volumes(forma))
         case 0:
             print('Encerrando o programa')
         case _:
