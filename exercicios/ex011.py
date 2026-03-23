@@ -96,28 +96,39 @@ Escolha uma opção:
 opcao = 1
 
 while (opcao != 0):
+    print(menu)
     opcao = int(input('Número inteiro: '))
     match opcao:
         case 1:
             valor = float(input('Informe o valor para conversão: '))
-            unidade_de = input('Informe a unidade original\n(m)etros - (cm)centimetros - (km)quilometros: ')
-            unidade_para = input('Informe a unidade desejada para conversão\n(m)etros - (cm)centimetros - (km)quilometros: ')
-            print(calc_comprimento(valor, unidade_de, unidade_para), unidade_para)
+            unidade_de = input('Informe a unidade original (m, cm, km)')
+            unidade_para = input('Informe a unidade desejada  (m, cm, km)')
+            
+            resultado = calc_comprimento(valor, unidade_de, unidade_para)
+            print(f'Resultado da conversão de {valor}{unidade_de} em {resultado}{unidade_para}')
         case 2:
             densidade = float(input('Informe a densidade (g/cm³): '))
             volume = float(input('Informe o volume (cm³): '))
-            print(calc_massa(densidade, volume), 'g')
+
+            resultado = calc_massa(densidade, volume)
+            print(f'Resultado da conversão é {resultado}g')
         case 3:
             volume = float(input('Informe o volume (cm³): '))
-            print(calc_capacidade(volume), 'litros')
+            
+            resultado = calc_capacidade(volume)
+            print(f'Resultado da conversão de {volume}cm³ em litros é {resultado}l')
         case 4:
             print('Forma: 1- quadrado, 2- retangulo, 3- triangulo, 4- circulo, 5- esfera')
             superficie = int(input('Informe a superficie: '))
-            print(calc_superficie(superficie))
+
+            resultado = calc_superficie(superficie)
+            print(f'Resultado da área calculada é {resultado}')
         case 5:
             print('Forma: 1- quadrado/retangulo, 2- cilindro')
             forma = int(input('Informe a forma para o volume: '))
-            print(calc_volumes(forma))
+
+            resultado = calc_volumes(forma)
+            print(f'Resultado do volume calculado é {resultado}cm³')
         case 0:
             print('Encerrando o programa')
         case _:
