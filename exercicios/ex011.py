@@ -16,9 +16,25 @@ def calc_massa(densidade, volume):
     massa = densidade * volume
     return massa
 
-def calc_capacidade():
-    return ...
+def calc_capacidade(volume):
+    return 1000 * volume
 
+def calc_quadrado(lado):
+    return lado ** 2
+
+def calc_retangulo(base, altura):
+    return base * altura
+
+def calc_superficie(forma_geometrica):
+    if forma_geometrica == 1:
+        lado = float(input('Informe o lado do quadrado: '))
+        resultado = calc_quadrado(lado)
+    elif forma_geometrica == 2:
+        base = float(input('Informe a base do retangulo: '))
+        altura = float(input('Informe a altura do retangulo: '))
+        resultado = calc_retangulo(base, altura)
+
+    return resultado
 menu = """
 Escolha uma opção:
 1- Comprimento
@@ -44,9 +60,12 @@ while (opcao != 0):
             volume = float(input('Informe o volume (cm³): '))
             print(calc_massa(densidade, volume), 'g')
         case 3:
-            print("Capacidade")
+            volume = float(input('Informe o volume (cm³): '))
+            print(calc_capacidade(volume), 'litros')
         case 4:
-            print("Superficie")
+            print('Forma: 1- quadrado, 2- retangulo, 3- triangulo, 4- circulo, 5- esfera')
+            superficie = int(input('Informe a superficie: '))
+            print(calc_superficie(superficie))
         case 5:
             print("Volume")
         case 0:
