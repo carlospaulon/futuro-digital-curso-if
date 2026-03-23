@@ -25,6 +25,19 @@ def calc_quadrado(lado):
 def calc_retangulo(base, altura):
     return base * altura
 
+def calc_triangulo(base, altura):
+    return (base * altura) / 2
+
+def calc_circulo(raio):
+    PI = 3.14
+
+    return PI * (raio ** 2)
+
+def calc_esfera(raio):
+    PI = 3.14
+
+    return 4 * PI * (raio ** 2)
+
 def calc_superficie(forma_geometrica):
     if forma_geometrica == 1:
         lado = float(input('Informe o lado do quadrado: '))
@@ -33,6 +46,18 @@ def calc_superficie(forma_geometrica):
         base = float(input('Informe a base do retangulo: '))
         altura = float(input('Informe a altura do retangulo: '))
         resultado = calc_retangulo(base, altura)
+    elif forma_geometrica == 3:
+        base = float(input('Informe a base do triangulo: '))
+        altura = float(input('Informe a altura do triangulo: '))
+        resultado = calc_triangulo(base, altura)
+    elif forma_geometrica == 4:
+        raio = float(input('Informe o raio do circulo: '))
+        resultado = calc_circulo(raio)
+    elif forma_geometrica == 5:
+        raio = float(input('Informe o raio da esfera: '))
+        resultado = calc_esfera(raio)
+    else:
+        print('Forma inválida')
 
     return resultado
 menu = """
