@@ -1,6 +1,6 @@
 class Televisor:
 
-    def __init__(self, fabricante, modelo, canal_atual, lista_canais, volume):
+    def __init__(self, fabricante, modelo, canal_atual=None, lista_canais=[], volume=0):
         self.fabricante = fabricante
         self.modelo = modelo
         self.canal_atual = canal_atual
@@ -22,9 +22,14 @@ class Televisor:
         if self.volume > 0:
             self.volume -= 1
     
-    def trocar_sintonizar_canais(self, novo_canal):
+    def trocar_canal(self, novo_canal):
         if novo_canal in self.lista_canais:
             self.canal_atual = novo_canal
         else:
+            return f'Canal não existe - Sintonize o canal {novo_canal}'
+
+    def sintonizar_canal(self, novo_canal):
+        if novo_canal not in self.lista_canais:
             self.lista_canais.append(novo_canal)
-            self.canal_atual = novo_canal
+        else:
+            return 'O canal já existe'
