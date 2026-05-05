@@ -1,0 +1,2 @@
+class PagamentoRecusadoError(Exception):
+    pass
